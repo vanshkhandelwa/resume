@@ -17,7 +17,9 @@ else:
     print("Warning: GOOGLE_API_KEY not found in .env file.")
 
 app = FastAPI()
-
+@app.get("/health")
+async def health_check():
+    return {"status": "ok"}
 # CORS for frontend integration
 app.add_middleware(
     CORSMiddleware,

@@ -21,6 +21,10 @@ app = FastAPI()
 async def health_check():
     return {"status": "ok"}
 # CORS for frontend integration
+@app.get("/")
+async def root():
+    return {"message": "Resume bullet suggestion backend is live!"}
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

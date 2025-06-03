@@ -19,6 +19,9 @@ else:
     logging.warning("GOOGLE_API_KEY not found in .env file.")
 
 app = FastAPI()
+@app.get("/")
+def root():
+    return {"message": "Resume Enhancer API is working 🚀"}
 
 @app.get("/health")
 async def health_check():
